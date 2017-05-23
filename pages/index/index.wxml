@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">{{name}}</view>
+<button bindtap="click">click</button>
+<view wx:for="{{array}}"> {{item}} </view>
