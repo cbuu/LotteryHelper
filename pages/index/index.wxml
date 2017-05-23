@@ -1,4 +1,6 @@
 <!--index.wxml-->
-<view class="container">{{name}}</view>
-<button bindtap="click">click</button>
-<view wx:for="{{array}}"> {{item}} </view>
+
+<scroll-view>
+  <view wx:for="{{players}}" class="player">{{item}}</view>
+</scroll-view>
+<button bindtap="addPlayer">增加玩家</button>

@@ -3,20 +3,14 @@
 var app = getApp()
 Page({
   data: {
-    name: 'Hello World',
     userInfo: {},
-    array: [1, 2, 3, 4, 5]
+    players: ['iori','cbuu']
   },
   //事件处理函数
-  click: function(){
+  addPlayer: function(){
+    var ps = ['deng'].concat(this.data.players);
     this.setData({
-      name:'fuck'
-    })
-    wx.switchTab({
-      url: '/pages/setting/setting',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      players:ps
     })
   },
 
