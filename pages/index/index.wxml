@@ -1,6 +1,17 @@
 <!--index.wxml-->
+<view class="add">
+    <button bindtap="addPlayer">增加</button>
+    <input class="new-todo" value="{{ input }}" placeholder="输入姓名" auto-focus bindinput="inputChange"/>
+</view>
+
+<view class="computer">
+    <button bindtap="computer">结算</button>
+    
+</view>
 
 <scroll-view>
-  <view wx:for="{{players}}" class="player">{{item}}</view>
+  <view wx:for="{{players}}" wx:key="{{ index }}" data-index="{{index}}"  class="player" bindtap="tapForDetail">{{item.name}}       {{item.count}}元</view>
 </scroll-view>
-<button bindtap="addPlayer">增加玩家</button>
+<view class="main-button" style="flex-direction:row;">
+  <button class="main-button-item" bindtap="clearPlayer">清空玩家</button>
+</view>
