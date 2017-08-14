@@ -8,11 +8,11 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "六仔计算器",
+    "navigationBarTitleText": "大妈计算器",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "position": "top",
+    "position": "bottom",
     "color": "#dddddd",
     "selectedColor": "#3cc51f",
     "borderStyle": "black",

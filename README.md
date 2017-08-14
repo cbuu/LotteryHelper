@@ -1,1 +1,1 @@
-fuck my spare time
+create for myself

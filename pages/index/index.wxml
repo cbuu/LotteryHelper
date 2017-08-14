@@ -1,13 +1,24 @@
 <!--index.wxml-->
-<view class="add">
-    <button bindtap="addPlayer">增加</button>
-    <input class="new-todo" value="{{ input }}" placeholder="输入姓名" auto-focus bindinput="inputChange"/>
+<view class="numbers_container" style="flex-direction:row;">
+  <view class="number_view" wx:for="{{numbers}}">
+    <picker bindchange="bindPickerChange" range="{{range}}" id="num{{index}}">{{item}}</picker>
+  </view>
 </view>
 
-<view class="computer">
+<view class="buttons" style="flex-direction:row;">
+  <view class="button">
+    <button bindtap="add">增加</button>
+  </view>
+
+  <view class="button">
     <button bindtap="computer">结算</button>
+  </view>
 </view>
+    
+<view class="line"></view>
 
 <scroll-view>
-  <view wx:for="{{players}}" wx:key="{{ index }}" data-index="{{index}}"  class="player" bindtap="tapForDetail">{{item.name}}       {{item.count}}元</view>
+  <view wx:for="{{bets}}" wx:key="{{ index }}" data-index="{{index}}"  class="bet_list" bindtap="tapForDetail">
+  
+  </view>
 </scroll-view>

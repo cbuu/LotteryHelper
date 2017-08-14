@@ -1,41 +1,39 @@
 /**index.wxss**/
-.add {
+.numbers_container {
   border: 1rpx solid #e0e0e0;
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx #e0e0e0;
+  height: 100rpx;
+  margin: 20rpx;
   display: flex;
-  align-items: center;
-  padding: 20rpx;
-  border-bottom: 1rpx solid #e0e0e0;
-  margin: 30rpx;
 }
 
-.add input {
-  margin-left: 20rpx;
+#num6 {
+  color: red;
 }
 
-.add button{
+.number_view{
+  border: 1rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  box-shadow: 0 0 5rpx #e0e0e0;
+  height: 80rpx;
   margin: 10rpx;
-  color:black;
-  padding: 10rpx;
+  text-align: center;
+  line-height: 80rpx;
+  width: 80rpx;
 }
 
-.player {
-  border: 1rpx solid #e0e0e0;
-  border-radius: 10rpx;
-  box-shadow: 0 0 5rpx #e0e0e0;
+.buttons {
   display: flex;
-  align-items: center;
-  padding: 20rpx;
-  border-bottom: 1rpx solid #e0e0e0;
-  margin: 30rpx;
+  width:100%;
 }
 
-
-.main-button{
-  margin-top: 30rpx;
-  display:flex;
+.button {
+  margin: 20rpx;
+  width: 335rpx;
 }
-.main-button-item{
-  color:green
+
+.line {
+  border: 1rpx solid #e0e0e0;
+  margin: 10rpx;
 }

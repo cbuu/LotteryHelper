@@ -1,33 +1,23 @@
 //index.js
 //获取应用实例
 var util = require('../../utils/util.js')
-var Player = require('../../bases/player.js')
 var app = getApp()
 Page({
   data: {
-    input:'',
-    date:'',
     userInfo: {},
-    players: []
-  },
-  //事件处理函数
-  addPlayer: function(){
-      var newPlayer = Player.create(this.data.input)
-      console.log(newPlayer)
-      this.data.players.push(newPlayer)
-      this.setData({
-        players: this.data.players,
-      })
+    numbers:[0,0,0,0,0,0,0],
+    range:[],
   },
 
-  tapForDetail : function(e){
-    var index = e.currentTarget.dataset.index;
-    var players = this.data.players;
-    console.log(index);
-  },
-
-  inputChange : function(e){
-    this.setData({ input: e.detail.value })
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    var numbers = this.data.numbers;
+    var index = e.detail.value;
+    var numIndex = e.target.id[3];
+    numbers[numIndex] = this.data.range[index];
+    this.setData({
+      numbers:numbers,
+    })
   },
 
   onShareAppMessage: function () {
@@ -40,13 +30,22 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
+    var range = []
+    for(var i=1;i<50;i++){
+      range.push(i);
+    }
+    this.setData({
+      range:range,
+    })
+    console.log('end')
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
         date: util.formatTime(new Date(Date.now())),
-        userInfo:userInfo
+        userInfo:userInfo,
       })
     })
+
   }
 })
