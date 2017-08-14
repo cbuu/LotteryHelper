@@ -6,12 +6,8 @@
 
 <view class="computer">
     <button bindtap="computer">结算</button>
-    
 </view>
 
 <scroll-view>
   <view wx:for="{{players}}" wx:key="{{ index }}" data-index="{{index}}"  class="player" bindtap="tapForDetail">{{item.name}}       {{item.count}}元</view>
 </scroll-view>
-<view class="main-button" style="flex-direction:row;">
-  <button class="main-button-item" bindtap="clearPlayer">清空玩家</button>
-</view>
