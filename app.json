@@ -1,31 +1,14 @@
 {
   "pages": [
+    "pages/select/select",
+    "pages/detail/detail",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/setting/setting",
-    "pages/detail/detail"
+    "pages/setting/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "大妈计算器",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "position": "bottom",
-    "color": "#dddddd",
-    "selectedColor": "#3cc51f",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "主页"
-      },
-      {
-        "pagePath": "pages/setting/setting",
-        "text": "设置"
-      }
-    ]
   }
 }

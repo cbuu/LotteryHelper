@@ -1,12 +1,12 @@
-// setting.js
-
+// select.js
+var Bet = require("../../utils/bet");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    current:"tama",
   },
 
   /**
@@ -63,5 +63,16 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+
+
+  //绑定事件
+  select: function() {
+    console.log("select");
+    var pages = getCurrentPages();
+    var indexPage = pages[pages.length - 2];
+    indexPage.addBet(Bet.create(Bet.type.TEMA,2,300));
+    wx.navigateBack()
+  },
 })

@@ -17,8 +17,8 @@
     
 <view class="line"></view>
 
-<scroll-view>
-  <view wx:for="{{bets}}" wx:key="{{ index }}" data-index="{{index}}"  class="bet_list" bindtap="tapForDetail">
-  
+<scroll-view class="bet_list">
+  <view wx:for="{{bets}}" class="bet_item"  bindtap="tapForDetail" style="flex-direction:row;">
+    {{item.t}} - {{item.num}}    {{item.money}}
   </view>
 </scroll-view>
