@@ -2,17 +2,22 @@
 <view class="select_container" style="flex-direction:row;">
   <picker class="picker_container" bindchange="bindPickerChange" range="{{range}}">{{current}}</picker>
 
-  <input class="input_container" type="digit" value="40000"/>
+  <input class="input_container" bindinput="bindKeyInput" type="digit" value="40000"/>
 </view>
 
 <view class="line"></view>
 
 <view class="section">
   <view class="selection_container">
-    <view class="selection" wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}">{{item}}</view>
+    <view wx:for="{{numbers}}">
+      <view wx:if='{{ hasSelect[item]}}' class="selection" bindtap="selectTap" id='{{item}}' style="background-color: greenyellow;">{{item}}</view>
+
+      <view wx:else class="selection" bindtap="selectTap" id='{{item}}'>{{item}}</view>
+    </view>
+    
   </view>
 
   <view class="btn_area">
-    <button bindtap="tap">确定</button>
+    <button bindtap="select">确定</button>
   </view>
 </view>

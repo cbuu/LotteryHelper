@@ -14,9 +14,10 @@ var EType = {
 var TEMA = {
   t:EType.TEMA,
   nums:[],
-  odds:42
+  odds:42,
+  des:'tama'
 }
-for(var i = 1;i<=49;i++){
+for(var i = 1;i<=3;i++){
     TEMA.nums.push(i);
 }
 

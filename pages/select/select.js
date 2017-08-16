@@ -6,14 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current:"tama",
+    current:"tema",
+    inputValue:0,
+    selections:[],
+    range:[],
+    numbers:[],
+    hasSelect:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var range = [];
+    for(var i in Bet.array){
+      var AType = Bet.array[i];
+      range.push(AType.des);
+    }
+
+    this.setData({
+      range:range,
+    })
   },
 
   /**
@@ -65,14 +78,60 @@ Page({
   
   },
 
+  bindKeyInput: function(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
 
+  bindPickerChange : function(e){
+    var index = e.detail.value;
+    var current = this.data.range[index];
+    var currentType = Bet.array[index];
+    console.log('curType = ' + currentType);
+    var hasSelect = [];
+    for(var i=0;i<currentType.nums.length;i++){
+      hasSelect[i] = false;
+    }
+    this.setData({
+      current:current,
+      numbers:currentType.nums,
+    })
+
+    
+  },
+
+  selectTap : function(e){
+    console.log(e);
+    var id = e.target.id;
+    console.log(id);
+    var selections = this.data.selections;
+    var hasSelect = this.data.hasSelect;
+    if(selections.hasOwnProperty(id)){
+        delete selections[id];
+        hasSelect[id] = false;
+    }else{
+        console.log('change true ' + id);
+        selections[id] = id;
+        hasSelect[id] = true;
+    }
+
+    this.setData({
+      selections: selections,
+      hasSelect: hasSelect,
+    })
+  },
 
   //绑定事件
   select: function() {
     console.log("select");
     var pages = getCurrentPages();
     var indexPage = pages[pages.length - 2];
-    indexPage.addBet(Bet.create(Bet.type.TEMA,2,300));
+    for(var i in this.data.selections){
+      var selection = this.data.selections[i];
+      indexPage.addBet(Bet.create(Bet.type.TEMA,selection,this.data.inputValue));
+    }
+    
     wx.navigateBack()
   },
 })
