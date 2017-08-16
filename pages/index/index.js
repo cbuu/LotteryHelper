@@ -12,6 +12,19 @@ Page({
     bets:[],
   },
 
+  onShow: function () {
+    var that = this;
+    wx.getStorage({
+      key:'bets',
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          bets:res.data,
+        })
+      }
+    });
+  },
+
   bindPickerChange: function (e) {
     var numbers = this.data.numbers;
     var index = e.detail.value;
@@ -42,6 +55,14 @@ Page({
       this.setData({
         bets:bets,
       });
+
+      wx.setStorage({
+        key:'bets',
+        data:bets,
+        success:function(){
+          console.log('save success');
+        },
+      });
   },
 
   computer : function() {
@@ -61,6 +82,19 @@ Page({
       })
   },
   
+  clear : function() {
+    var that = this;
+    wx.removeStorage({
+      key: 'bets',
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          bets:[],
+        });
+      } 
+    })
+  },
+
   onLoad: function (option) {
     console.log('onLoad ' + option)
     var that = this
@@ -81,7 +115,6 @@ Page({
         userInfo:userInfo,
       })
     })
-
 
   }
 })

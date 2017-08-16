@@ -2,7 +2,7 @@
 <view class="select_container" style="flex-direction:row;">
   <picker class="picker_container" bindchange="bindPickerChange" range="{{range}}">{{current}}</picker>
 
-  <input class="input_container" bindinput="bindKeyInput" type="digit" value="40000"/>
+  <input class="input_container" bindinput="bindKeyInput" type="digit" value="0"/>
 </view>
 
 <view class="line"></view>

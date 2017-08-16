@@ -13,12 +13,18 @@
   <view class="button">
     <button bindtap="computer">结算</button>
   </view>
+
+  <view class="button">
+    <button bindtap="clear">清空</button>
+  </view>
 </view>
     
 <view class="line"></view>
 
 <scroll-view class="bet_list">
   <view wx:for="{{bets}}" class="bet_item"  bindtap="tapForDetail" style="flex-direction:row;">
-    {{item.des}} - {{item.num}} =:= {{item.money}}
+    <view class="bet_des">{{item.des}}</view>
+    <view class="bet_num">{{item.num}}</view>
+    <view class="bet_money">{{item.money}}</view>
   </view>
 </scroll-view>

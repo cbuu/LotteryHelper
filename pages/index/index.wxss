@@ -30,7 +30,7 @@
 
 .button {
   margin: 20rpx;
-  width: 335rpx;
+  width: 210rpx;
 }
 
 .line {
@@ -47,4 +47,35 @@
   margin: 20rpx;
   text-align: center;
   line-height: 80rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  display: flex;
+  justify-content: space-between
+}
+
+.bet_des {
+  border: 1rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  box-shadow: 0 0 5rpx #e0e0e0;
+  margin: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.bet_num {
+  width: 80rpx;
+  height: 80rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 80rpx;
+  margin: 10rpx;
+}
+
+.bet_money {
+  border: 1rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  box-shadow: 0 0 5rpx #e0e0e0;
+  margin: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  
 }

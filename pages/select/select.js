@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current:"tema",
+    current:"请选择",
+    currentT:0,
     inputValue:0,
     selections:[],
     range:[],
@@ -96,6 +97,7 @@ Page({
     this.setData({
       current:current,
       numbers:currentType.nums,
+      currentT:currentType.t,
     })
 
     
@@ -129,7 +131,7 @@ Page({
     var indexPage = pages[pages.length - 2];
     for(var i in this.data.selections){
       var selection = this.data.selections[i];
-      indexPage.addBet(Bet.create(Bet.type.TEMA,selection,this.data.inputValue));
+      indexPage.addBet(Bet.create(this.data.currentT,selection,Number(this.data.inputValue),this.data.current));
     }
     
     wx.navigateBack()
