@@ -129,11 +129,30 @@ Page({
     console.log("select");
     var pages = getCurrentPages();
     var indexPage = pages[pages.length - 2];
-    for(var i in this.data.selections){
-      var selection = this.data.selections[i];
-      indexPage.addBet(Bet.create(this.data.currentT,selection,Number(this.data.inputValue),this.data.current));
+    
+    switch(this.data.currentT){
+            case Bet.type.TEMA:
+            case Bet.type.PITE:
+                for(var i in this.data.selections){
+                  var selection = this.data.selections[i];
+                  indexPage.addBet(Bet.create(this.data.currentT,selection,Number(this.data.inputValue),this.data.current));
+                }
+                break;
+            case Bet.type.HEQI:
+                indexPage.addBet(Bet.createheqi(this.data.currentT,this.data.selections,Number(this.data.inputValue)))
+                break;
+            case Bet.type.LIQI:
+
+                break;
+            case Bet.type.LIMA:
+
+                break;
     }
     
     wx.navigateBack()
   },
+
+  
+
+  
 })

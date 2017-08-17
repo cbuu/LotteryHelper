@@ -13,6 +13,15 @@ function computer(result,bets){
             case Bet.type.PITE:
                 sum -= cal_pite(result,bet.num,bet.money);
                 break;
+            case Bet.type.HEQI:
+
+                break;
+            case Bet.type.LIQI:
+
+                break;
+            case Bet.type.LIMA:
+
+                break;
         }
     }
 
@@ -43,6 +52,18 @@ function cal_pite(nums,betnum,money){
         }
     }
     return 0;
+}
+
+function cal_heqi(nums,betnum,money){
+    
+}
+
+function cal_liqi(nums,betnum,money){
+
+}
+
+function cal_lima(nums,betnum,money){
+    
 }
 
 
