@@ -35,6 +35,60 @@ function createheqi(t,nums,money){
     return bet;
 }
 
+function createliqi(t,nums,money){
+    var bet = {};
+    bet.t = t;
+    bet.num = nums;
+    bet.money = money;
+    switch(nums.length){
+      case 2:
+        bet.des = '2you';
+        break;
+
+      case 3:
+        bet.des = '3you';
+        break;
+      case 4:
+        bet.des = '4you';
+        break;
+      case 5:
+        bet.des = '5you';
+        break;
+      case 6:
+        bet.des = '6you';
+        break;
+    }
+    
+    return bet;
+}
+
+function createlima(t,nums,money){
+var bet = {};
+    bet.t = t;
+    bet.num = nums;
+    bet.money = money;
+    switch(nums.length){
+      case 2:
+        bet.des = '2youm';
+        break;
+
+      case 3:
+        bet.des = '3youm';
+        break;
+      case 4:
+        bet.des = '4youm';
+        break;
+      case 5:
+        bet.des = '5youm';
+        break;
+      case 6:
+        bet.des = '6youm';
+        break;
+    }
+    
+    return bet;
+}
+
 var EType = {
   TEMA:1,
   PITE:2,

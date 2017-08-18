@@ -139,13 +139,13 @@ Page({
                 }
                 break;
             case Bet.type.HEQI:
-                indexPage.addBet(Bet.createheqi(this.data.currentT,this.data.selections,Number(this.data.inputValue)))
+                indexPage.addBet(Bet.createheqi(this.data.currentT,this.data.selections,Number(this.data.inputValue)));
                 break;
             case Bet.type.LIQI:
-
+                indexPage.addBet(Bet.createliqi(this.data.currentT,this.data.selections,Number(this.data.inputValue))); 
                 break;
             case Bet.type.LIMA:
-
+                indexPage.addBet(Bet.createlima(this.data.currentT,this.data.selections,Number(this.data.inputValue)));
                 break;
     }
     

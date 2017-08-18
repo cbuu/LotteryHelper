@@ -23,6 +23,16 @@ Page({
         })
       }
     });
+
+    wx.getStorage({
+      key:'numbers',
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          numbers:res.data,
+        })
+      }
+    });
   },
 
   bindPickerChange: function (e) {
@@ -32,6 +42,14 @@ Page({
     numbers[numIndex] = this.data.range[index];
     this.setData({
       numbers:numbers,
+    })
+
+    this.setStorage({
+        key:'numbers',
+        data:numbers,
+        success:function(){
+          console.log('save numbers')
+        }
     })
   },
 
@@ -60,7 +78,7 @@ Page({
         key:'bets',
         data:bets,
         success:function(){
-          console.log('save success');
+          console.log('save bets');
         },
       });
   },

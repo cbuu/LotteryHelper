@@ -1,4 +1,5 @@
 var Bet = require('bet')
+var TEMA_INDEX = 6;
 function computer(result,bets){
     var sum = 0;
     for(var i in bets){
@@ -8,19 +9,19 @@ function computer(result,bets){
 
         switch(bet.t){
             case Bet.type.TEMA:
-                sum -= cal_tema(result[6],bet.num,bet.money);
+                sum -= cal_tema(result[TEMA_INDEX],bet.num,bet.money);
                 break;
             case Bet.type.PITE:
                 sum -= cal_pite(result,bet.num,bet.money);
                 break;
             case Bet.type.HEQI:
-
+                sum -= cal_heqi(result[TEMA_INDEX],bet.num,bet.money);
                 break;
             case Bet.type.LIQI:
-
+                sum -= cal_liqi(result,bet.num,bet.money);
                 break;
             case Bet.type.LIMA:
-
+                sum -= cal_lima(result,bet.num,bet.money);
                 break;
         }
     }
@@ -40,10 +41,9 @@ function cal_tema(num,betnum,money){
 }
 
 function cal_pite(nums,betnum,money){
-    var sum = 0;
     for(var i = 0;i<nums.length;i++){
-        var r = Number(nums[i]);
-        if(Math.abs(r-betnum)%12==0){
+        var r = nums[i]%12;
+        if(betnum%12==r){
              if(betnum%12==1){
                 return money * 1.8;
              }else{
@@ -54,16 +54,40 @@ function cal_pite(nums,betnum,money){
     return 0;
 }
 
-function cal_heqi(nums,betnum,money){
-    
+function cal_heqi(num,betnums,money){
+    var sum = 0;
+    var r = num%12;
+    for(var i in betnums){
+        if(betnums[i]%12 == r){
+            return money * 1.8;
+        }
+    }
+    return 0;
 }
 
 function cal_liqi(nums,betnum,money){
+    switch(betnum.length){
+        case 2:
+        bet.des = '2you';
+        break;
 
+      case 3:
+        bet.des = '3you';
+        break;
+      case 4:
+        bet.des = '4you';
+        break;
+      case 5:
+        bet.des = '5you';
+        break;
+      case 6:
+        bet.des = '6you';
+        break;
+    }
 }
 
 function cal_lima(nums,betnum,money){
-    
+
 }
 
 
