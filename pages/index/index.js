@@ -44,7 +44,7 @@ Page({
       numbers:numbers,
     })
 
-    this.setStorage({
+    wx.setStorage({
         key:'numbers',
         data:numbers,
         success:function(){
@@ -88,7 +88,7 @@ Page({
       console.log(sum);
       wx.showModal({
         title: '结算',
-        content: '总共:'+sum,
+        content: '总共:'+sum+'元',
         showCancel:false,
         success: function(res) {
           if (res.confirm) {

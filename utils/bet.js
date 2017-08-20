@@ -15,20 +15,20 @@ function createheqi(t,nums,money){
     bet.money = money;
     switch(nums.length){
       case 2:
-        bet.des = '2li';
+        bet.des = '2肖';
         break;
 
       case 3:
-        bet.des = '3li';
+        bet.des = '3肖';
         break;
       case 4:
-        bet.des = '4li';
+        bet.des = '4肖';
         break;
       case 5:
-        bet.des = '5li';
+        bet.des = '5肖';
         break;
       case 6:
-        bet.des = '6li';
+        bet.des = '6肖';
         break;
     }
     
@@ -42,20 +42,20 @@ function createliqi(t,nums,money){
     bet.money = money;
     switch(nums.length){
       case 2:
-        bet.des = '2you';
+        bet.des = '2连肖';
         break;
 
       case 3:
-        bet.des = '3you';
+        bet.des = '3连肖';
         break;
       case 4:
-        bet.des = '4you';
+        bet.des = '4连肖';
         break;
       case 5:
-        bet.des = '5you';
+        bet.des = '5连肖';
         break;
       case 6:
-        bet.des = '6you';
+        bet.des = '6连肖';
         break;
     }
     
@@ -69,20 +69,20 @@ var bet = {};
     bet.money = money;
     switch(nums.length){
       case 2:
-        bet.des = '2youm';
+        bet.des = '2有码';
         break;
 
       case 3:
-        bet.des = '3youm';
+        bet.des = '3有码';
         break;
       case 4:
-        bet.des = '4youm';
+        bet.des = '4有码';
         break;
       case 5:
-        bet.des = '5youm';
+        bet.des = '5有码';
         break;
       case 6:
-        bet.des = '6youm';
+        bet.des = '6有码';
         break;
     }
     
@@ -103,7 +103,7 @@ var TEMA = {
   t:EType.TEMA,
   nums:[],
   odds:42,
-  des:'te'
+  des:'特马'
 }
 for(var i = 1;i<=49;i++){
     TEMA.nums.push(i);
@@ -115,7 +115,7 @@ for(var i = 1;i<=49;i++){
 var PITE = {
   t:EType.PITE,
   nums:[],
-  des:'pt',
+  des:'平特',
 }
 for(var i = 1;i<=12;i++){
     PITE.nums.push(i);
@@ -126,7 +126,7 @@ for(var i = 1;i<=12;i++){
 var HEQI = {
   t:EType.HEQI,
   nums:[],
-  des:'heqiao'
+  des:'合肖'
 }
 for(var i = 1;i<=12;i++){
     HEQI.nums.push(i);
@@ -138,7 +138,7 @@ for(var i = 1;i<=12;i++){
 var LIQI = {
   t:EType.LIQI,
   nums:[],
-  des:'lianqiao'
+  des:'连肖'
 }
 
 for(var i = 1;i<=12;i++){
@@ -150,7 +150,7 @@ for(var i = 1;i<=12;i++){
 var LIMA = {
   t:EType.LIMA,
   nums:[],
-  des:'lianma'
+  des:'连码'
 }
 
 for(var i = 1;i<=49;i++){
@@ -161,6 +161,9 @@ var AType = [TEMA,PITE,HEQI,LIQI,LIMA];
 
 module.exports = {
   create: create,
+  createheqi:createheqi,
+  createliqi:createliqi,
+  createlima,createlima,
   type : EType,
   array : AType,
 }
