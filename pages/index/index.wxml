@@ -23,8 +23,17 @@
 
 <scroll-view class="bet_list">
   <view wx:for="{{bets}}" class="bet_item"  bindtap="tapForDetail" style="flex-direction:row;">
-    <view class="bet_des">{{item.des}}</view>
-    <view class="bet_num">{{item.num}}</view>
+    <view class="bet_des"  >{{item.des}}</view>
+
+    <view>
+      <view class="nums" wx:if="{{item.num.length > 1}}" style="flex-direction:row;">
+        <view wx:for="{{item.num}}" class="bet_num" wx:for-item="num">{{num}}</view>
+      </view>
+      <view wx:else>
+        <view class="bet_num">{{item.num}}</view>
+      </view>
+    </view>
+
     <view class="bet_money">{{item.money}}</view>
   </view>
 </scroll-view>

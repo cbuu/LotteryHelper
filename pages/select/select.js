@@ -1,5 +1,6 @@
 // select.js
 var Bet = require("../../utils/bet");
+
 Page({
 
   /**
@@ -105,16 +106,17 @@ Page({
 
   selectTap : function(e){
     console.log(e);
-    var id = e.target.id;
+    var id = Number(e.target.id);
     console.log(id);
     var selections = this.data.selections;
     var hasSelect = this.data.hasSelect;
-    if(selections.hasOwnProperty(id)){
-        delete selections[id];
+    var index = this.contains(id,selections);
+    if(index !== -1){
+        selections.splice(index,1);
         hasSelect[id] = false;
     }else{
         console.log('change true ' + id);
-        selections[id] = id;
+        selections.push(id);
         hasSelect[id] = true;
     }
 
@@ -124,9 +126,17 @@ Page({
     })
   },
 
+  contains : function(obj,array){
+    for (var i = 0; i < array.length; i++){
+        if (array[i] == obj)
+            return i;
+    }
+    return -1;
+  },
+
   //绑定事件
   select: function() {
-    console.log("select");
+    console.log("select  " + this.data.selections + "  " + this.data.currentT + "    m = " + Number(this.data.inputValue));
     var pages = getCurrentPages();
     var indexPage = pages[pages.length - 2];
     
