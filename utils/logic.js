@@ -111,7 +111,7 @@ function cal_liqi(nums,betnums,money){
         }
     }
     if(zhong){
-        switch(betnum.length){
+        switch(betnums.length){
             case 2:
             if(ji){
                 return money * 3.8;
@@ -166,7 +166,7 @@ function cal_lima(nums,betnums,money){
         }
     }
     if(zhong){
-        switch(betnum.length){
+        switch(betnums.length){
             case 2:
                 return money * 600;
             break;

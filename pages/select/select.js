@@ -14,6 +14,7 @@ Page({
     range:[],
     numbers:[],
     hasSelect:[],
+    value:0,
   },
 
   /**
@@ -80,9 +81,25 @@ Page({
   
   },
 
+  bindfocus : function(e){
+    console.log(e.detail.value);
+    this.setData({
+      value:'',
+    })
+  },
+
+  bindblur:function(e){
+    if(this.data.value==''){
+      this.setData({
+        value: 0,
+      })
+    }
+  },
+
   bindKeyInput: function(e) {
     this.setData({
-      inputValue: e.detail.value
+      inputValue: e.detail.value,
+      value: e.detail.value,
     })
   },
 
@@ -91,14 +108,23 @@ Page({
     var current = this.data.range[index];
     var currentType = Bet.array[index];
     console.log('curType = ' + currentType);
-    var hasSelect = [];
-    for(var i=0;i<currentType.nums.length;i++){
-      hasSelect[i] = false;
+    var hasSelect = {};
+    var qiaos = Bet.getqiao();
+    for(var i in qiaos){
+      hasSelect[qiaos[i]] = false;
     }
+    console.log(qiaos + '  --   ' + hasSelect);
+    var numbers = currentType.nums;
+    if(currentType.nums.length==12){
+      numbers = Bet.getqiao();
+    }
+    
+
     this.setData({
       current:current,
-      numbers:currentType.nums,
+      numbers:numbers,
       currentT:currentType.t,
+      hasSelect:hasSelect,
     })
 
     
@@ -106,20 +132,32 @@ Page({
 
   selectTap : function(e){
     console.log(e);
-    var id = Number(e.target.id);
+    var id;
+    if(this.data.currentT = Bet.type.TEMA){
+      id = Number(e.target.id);
+    }else{
+      id = Number(Bet.getqiao().indexOf(e.target.id)+1);
+    }
     console.log(id);
     var selections = this.data.selections;
     var hasSelect = this.data.hasSelect;
     var index = this.contains(id,selections);
+
+    var qiao = Bet.getqiao()[id-1];
+    if(this.data.currentT = Bet.type.TEMA){
+      qiao = id;
+    }else{
+      qiao = Bet.getqiao()[id-1];
+    }
     if(index !== -1){
         selections.splice(index,1);
-        hasSelect[id] = false;
+        hasSelect[qiao] = false;
     }else{
         console.log('change true ' + id);
         selections.push(id);
-        hasSelect[id] = true;
+        hasSelect[qiao] = true;
     }
-
+    console.log('hasSelect '+hasSelect);
     this.setData({
       selections: selections,
       hasSelect: hasSelect,

@@ -27,10 +27,10 @@
 
     <view>
       <view class="nums" wx:if="{{item.num.length > 1}}" style="flex-direction:row;">
-        <view wx:for="{{item.num}}" class="bet_num" wx:for-item="num">{{num}}</view>
+        <view wx:for="{{item.numdes}}" class="bet_num" wx:for-item="des">{{des}}</view>
       </view>
       <view wx:else>
-        <view class="bet_num">{{item.num}}</view>
+        <view class="bet_num">{{item.numdes}}</view>
       </view>
     </view>
 
