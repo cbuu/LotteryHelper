@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/main/main",
+    "pages/setting/setting",
     "pages/index/index",
     "pages/select/select",
-    "pages/detail/detail",
-    "pages/setting/setting"
+    "pages/detail/detail"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "大妈计算器",
+    "navigationBarTitleText": "心藏",
     "navigationBarTextStyle": "black"
   }
 }
