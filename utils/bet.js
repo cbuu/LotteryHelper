@@ -3,6 +3,12 @@ function create(t,num,money,des){
     var bet = {};
     bet.t = t;
     bet.num = num;
+    if(t == EType.TEMA){
+      bet.numdes = num;
+    }else if(t== EType.PITE){
+      bet.numdes = qiaos[num-1];
+    }
+    
     bet.money = money;
     bet.des = des;
     return bet;
@@ -12,23 +18,24 @@ function createheqi(t,nums,money){
     var bet = {};
     bet.t = t;
     bet.num = nums;
+    bet.numdes = getDes(nums);
     bet.money = money;
     switch(nums.length){
       case 2:
-        bet.des = '2肖';
+        bet.des = '2特肖';
         break;
 
       case 3:
-        bet.des = '3肖';
+        bet.des = '3特肖';
         break;
       case 4:
-        bet.des = '4肖';
+        bet.des = '4特肖';
         break;
       case 5:
-        bet.des = '5肖';
+        bet.des = '5特肖';
         break;
       case 6:
-        bet.des = '6肖';
+        bet.des = '6特肖';
         break;
     }
     
@@ -39,6 +46,7 @@ function createliqi(t,nums,money){
     var bet = {};
     bet.t = t;
     bet.num = nums;
+    bet.numdes = getDes(nums);
     bet.money = money;
     switch(nums.length){
       case 2:
@@ -66,6 +74,7 @@ function createlima(t,nums,money){
 var bet = {};
     bet.t = t;
     bet.num = nums;
+    bet.numdes = getDes(nums);
     bet.money = money;
     switch(nums.length){
       case 2:
@@ -159,6 +168,21 @@ for(var i = 1;i<=49;i++){
 
 var AType = [TEMA,PITE,HEQI,LIQI,LIMA];
 
+var qiaos = ['鸡','狗','猪','鼠','牛','虎','兔','龙','蛇','马','羊','猴'];
+
+function getqiao(){
+  return qiaos;
+}
+
+function getDes(nums){
+    var des = [];
+    for(var i in nums){
+      var num = nums[i];
+      des.push(qiaos[num-1]);
+    }
+    return des;
+}
+
 module.exports = {
   create: create,
   createheqi:createheqi,
@@ -166,4 +190,5 @@ module.exports = {
   createlima,createlima,
   type : EType,
   array : AType,
+  getqiao : getqiao,
 }
